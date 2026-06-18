@@ -3,7 +3,7 @@
 # ================== IMPORTS ==================
 from datetime import datetime
 from sqlalchemy import create_engine, Column, String, Integer, DateTime, JSON
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy.orm import sessionmaker
 
 from app.config import settings
@@ -13,7 +13,8 @@ from app.config import settings
 # =========== VARIABLES : Database connection engine, session factory and declarative base ===========
 engine = create_engine(settings.database_url, connect_args={"check_same_thread": False})
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-Base = declarative_base()
+class Base(DeclarativeBase):
+    pass
 
 
 class AnalysisTask(Base):
