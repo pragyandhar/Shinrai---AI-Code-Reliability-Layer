@@ -3,6 +3,7 @@
 # ================== IMPORTS ==================
 from celery_worker import celery_app
 from app.core.llm.generator import generate_code
+from app.core.reliability.runner import run_reliability_checks
 from app.models.db import SessionLocal, AnalysisTask
 # ================== IMPORTS ==================
 
@@ -19,8 +20,8 @@ def run_pipeline(task_id: str, prompt: str) -> None:
         # FLOW-1: generate code from the prompt
         generated_code = generate_code(prompt)
 
-        # FLOW-2: reliability check — placeholder till Phase 3
-        reliability_result = None
+        # FLOW-2: run all reliability checks on the generated code
+        reliability_result = run_reliability_checks(generated_code)
 
         # FLOW-3: security check — placeholder till Phase 3
         security_result = None
