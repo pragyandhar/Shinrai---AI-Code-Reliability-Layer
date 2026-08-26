@@ -1,19 +1,15 @@
-# WHAT DOES THIS FILE DO: Connects to Azure AI Foundry and generates Python code from a given prompt.
+# WHAT DOES THIS FILE DO: Connects to OpenAI and generates Python code from a given prompt.
 
 # ================== IMPORTS ==================
-from openai import AzureOpenAI
+from openai import OpenAI
 
 from app.config import settings
 # ================== IMPORTS ==================
 
 
-# =========== VARIABLES : Azure AI Foundry client — one instance reused across all calls ===========
-client = AzureOpenAI(
-    azure_endpoint=settings.foundry_endpoint,
-    api_key=settings.foundry_api_key,
-    api_version=settings.azure_openai_api_version,
-)
-# =========== VARIABLES : Azure AI Foundry client — one instance reused across all calls ===========
+# =========== VARIABLES : OpenAI client — one instance reused across all calls ===========
+client = OpenAI(api_key=settings.openai_api_key)
+# =========== VARIABLES : OpenAI client — one instance reused across all calls ===========
 
 
 # =========== FUNCTION ===========
@@ -37,9 +33,9 @@ def generate_code(prompt: str) -> str:
         },
     ]
 
-    # FLOW-2: send to GPT-5.4 and get response
+    # FLOW-2: send to GPT and get response
     response = client.chat.completions.create(
-        model=settings.foundry_deployment,
+        model=settings.openai_model,
         messages=messages,
     )
 

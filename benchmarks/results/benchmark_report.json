@@ -1,0 +1,193 @@
+{
+  "timestamp": "2026-08-26T18:37:42.149409",
+  "status": "PARTIAL (code generation requires OpenAI credits)",
+  "performance": {
+    "security_checks": {
+      "component": "security_checks",
+      "iterations": 10,
+      "times_ms": [
+        520.3709999987041,
+        470.4418000001169,
+        488.57850000058534,
+        496.5522999991663,
+        474.98860000268905,
+        476.4979999999923,
+        467.0988999969268,
+        472.1133999992162,
+        464.79630000249017,
+        489.71159999928204
+      ],
+      "avg_ms": 482.1150399999169,
+      "median_ms": 475.7433000013407,
+      "min_ms": 464.79630000249017,
+      "max_ms": 520.3709999987041,
+      "stdev_ms": 17.047302903646866
+    },
+    "confidence_aggregation": {
+      "component": "confidence_aggregation",
+      "iterations": 50,
+      "times_ms": [
+        0.04649999755201861,
+        0.016099998902063817,
+        0.010099996870849282,
+        0.007200000254670158,
+        0.006599999323952943,
+        0.006300000677583739,
+        0.006199999916134402,
+        0.006099999154685065,
+        0.005899997631786391,
+        0.006099999154685065,
+        0.006099999154685065,
+        0.006099999154685065,
+        0.005900001269765198,
+        0.005999998393235728,
+        0.006099999154685065,
+        0.005900001269765198,
+        0.005900001269765198,
+        0.006000002031214535,
+        0.006099999154685065,
+        0.005900001269765198,
+        0.006000002031214535,
+        0.006199999916134402,
+        0.006099999154685065,
+        0.006000002031214535,
+        0.005999998393235728,
+        0.005999998393235728,
+        0.006199999916134402,
+        0.005999998393235728,
+        0.005900001269765198,
+        0.005999998393235728,
+        0.006000002031214535,
+        0.006199999916134402,
+        0.005999998393235728,
+        0.005999998393235728,
+        0.006000002031214535,
+        0.005999998393235728,
+        0.005900001269765198,
+        0.006199999916134402,
+        0.005999998393235728,
+        0.005900001269765198,
+        0.005899997631786391,
+        0.005999998393235728,
+        0.005900001269765198,
+        0.005999998393235728,
+        0.005800000508315861,
+        0.006000002031214535,
+        0.005900001269765198,
+        0.005999998393235728,
+        0.006000002031214535,
+        0.005800000508315861
+      ],
+      "avg_ms": 0.007139999797800556,
+      "median_ms": 0.006000000212225132,
+      "min_ms": 0.005800000508315861,
+      "max_ms": 0.04649999755201861,
+      "stdev_ms": 0.005883979935240609
+    }
+  },
+  "accuracy": {
+    "reliability_detection": {
+      "test": "broken_code_detection",
+      "total_samples": 8,
+      "detected": 3,
+      "detection_rate": "37.50%",
+      "results": [
+        {
+          "sample": 1,
+          "code_snippet": "\ndef calculate_average(numbers):\n    total = sum(n...",
+          "score": 45,
+          "detected": true
+        },
+        {
+          "sample": 2,
+          "code_snippet": "\nimport nonexistent_library\nresult = nonexistent_l...",
+          "score": 45,
+          "detected": true
+        },
+        {
+          "sample": 3,
+          "code_snippet": "\ndef process_data(data: dict) -> str:\n    return d...",
+          "score": 45,
+          "detected": true
+        },
+        {
+          "sample": 4,
+          "code_snippet": "\ndef wait_for_condition():\n    while True:\n       ...",
+          "score": 88.5,
+          "detected": false
+        },
+        {
+          "sample": 5,
+          "code_snippet": "\nimport os\ndef run_command(user_input):\n    os.sys...",
+          "score": 98.0,
+          "detected": false
+        },
+        {
+          "sample": 6,
+          "code_snippet": "\nAPI_KEY = \"sk-proj-abc123xyz789\"\ndef fetch_data()...",
+          "score": 98.0,
+          "detected": false
+        },
+        {
+          "sample": 7,
+          "code_snippet": "\ndef evaluate_expression(expr: str):\n    return ev...",
+          "score": 98.5,
+          "detected": false
+        },
+        {
+          "sample": 8,
+          "code_snippet": "\ndef parse_json(data: str):\n    return json.loads(...",
+          "score": 97.0,
+          "detected": false
+        }
+      ]
+    },
+    "secure_code_validation": {
+      "test": "secure_code_validation",
+      "total_samples": 3,
+      "validated": 3,
+      "validation_rate": "100.00%",
+      "results": [
+        {
+          "sample": 1,
+          "code_snippet": "\ndef calculate_average(numbers):\n    if not number...",
+          "score": 98.5,
+          "validated": true
+        },
+        {
+          "sample": 2,
+          "code_snippet": "\nimport json\ndata = json.loads('{\"key\": \"value\"}')...",
+          "score": 99.5,
+          "validated": true
+        },
+        {
+          "sample": 3,
+          "code_snippet": "\ndef process_data(data: dict) -> str:\n    key_valu...",
+          "score": 98.5,
+          "validated": true
+        }
+      ]
+    },
+    "secret_detection": {
+      "test": "secret_detection",
+      "total_samples": 4,
+      "detected": 3,
+      "detection_rate": "75.00%"
+    },
+    "dangerous_pattern_detection": {
+      "test": "dangerous_pattern_detection",
+      "total_samples": 4,
+      "detected": 4,
+      "detection_rate": "100.00%"
+    }
+  },
+  "summary": {
+    "reliability_broken_detection": "37.50%",
+    "reliability_clean_validation": "100.00%",
+    "security_secret_detection": "75.00%",
+    "security_pattern_detection": "100.00%",
+    "avg_detection_accuracy": "71%",
+    "security_check_time_ms": "482.1ms",
+    "confidence_score_time_ms": "0.0071ms"
+  }
+}

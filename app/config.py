@@ -11,11 +11,9 @@ class Settings(BaseSettings):
 
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
 
-    # Azure AI Foundry
-    foundry_endpoint: str
-    foundry_deployment: str
-    foundry_api_key: str
-    azure_openai_api_version: str
+    # OpenAI
+    openai_api_key: str
+    openai_model: str = "gpt-4o"
 
     # Redis
     redis_url: str
