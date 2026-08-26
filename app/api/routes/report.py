@@ -20,6 +20,7 @@ class TaskResponse(BaseModel):
     original_code: str | None
     fixed_code: str | None
     diff: str | None
+    documentation: str | None
     repair_attempt: int | None
     reliability_report: Any | None
     security_report: Any | None

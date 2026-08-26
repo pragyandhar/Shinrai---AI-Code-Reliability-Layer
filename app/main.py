@@ -7,6 +7,8 @@ from fastapi import FastAPI
 
 from app.models.db import init_db
 from app.api.routes import generate, report
+from app.middleware.error_handler import exception_handler
+from app.core.utils.errors import ShinraiException
 # ================== IMPORTS ==================
 
 
@@ -47,3 +49,9 @@ def health_check() -> dict:
 app.include_router(generate.router, prefix="/api/v1")
 app.include_router(report.router, prefix="/api/v1")
 # =========== VARIABLES : route registration ===========
+
+
+# =========== VARIABLES : global error handlers — known Shinrai errors and anything unexpected both go through the same handler ===========
+app.add_exception_handler(ShinraiException, exception_handler)
+app.add_exception_handler(Exception, exception_handler)
+# =========== VARIABLES : global error handlers — known Shinrai errors and anything unexpected both go through the same handler ===========

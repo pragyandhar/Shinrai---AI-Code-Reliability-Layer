@@ -27,6 +27,7 @@ class AnalysisTask(Base):
     original_code = Column(String, nullable=True)
     fixed_code = Column(String, nullable=True)
     diff = Column(String, nullable=True)
+    documentation = Column(String, nullable=True)
     repair_attempt = Column(Integer, default=0)
     reliability_report = Column(JSON, nullable=True)
     security_report = Column(JSON, nullable=True)
